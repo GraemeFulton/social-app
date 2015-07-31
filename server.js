@@ -7,20 +7,36 @@ app.use(bodyParser.json());
 
 
 /**
- * Get Endpoint
+ * Get Endpoints
  */
+ 
+ //posts page GET endpoint
+ app.get('/', function (req,res,next){
+	 
+	 res.sendfile('layouts/posts.html')
+	 
+ })
+ 
+ //API Endpoint
 app.get('/api/posts', function(req,res, next){
 
 	// res.send('GET request to homepage');
 	/**
 	 * res.json just sends back json 
 	 */
-	Post.find(function(err,posts){
-		
+	 
+	 Post.find()
+	 .sort('-date')
+	 .exec(function(err,posts){
 		if(err){return next(err)}
+		res.json(posts);			 
+	 })
+	 
+	// Post.find(function(err,posts){
 		
-		res.json(posts);	
-	})
+	// 	if(err){return next(err)}
+	// 	res.json(posts);	
+	// })
 	
 	// res.json([	
 	// 	{
