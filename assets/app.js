@@ -32,15 +32,28 @@ app.controller('PostsCtrl', function($scope, PostsSvc) {
     $scope.addPost = function() {
         //if postbody input is not empty, add post 
         if ($scope.postBody) {
-
-            $http.post('api/posts', {
+            
+            var post = {
                     username: 'barry',
                     body: $scope.postBody //this is the input field	
-                }).success(function(post) {
-
-                    $scope.posts.unshift(post)
+                    }
+            
+            PostsSvc.create(post).success(function(post){
+                
+                 $scope.posts.unshift(post)
                     $scope.postBody = null;
-                })
+                
+            })
+            // $http.post('api/posts', {
+            //         username: 'barry',
+            //         body: $scope.postBody //this is the input field	
+            //     }).success(function(post) {
+
+            //         $scope.posts.unshift(post)
+            //         $scope.postBody = null;
+            //     })
+            
+            
                 // $scope.posts.unshift({
                 // 	username:'barry',
                 // 	body:$scope.postBody //this is the input field	
@@ -56,7 +69,14 @@ app.controller('PostsCtrl', function($scope, PostsSvc) {
 
   app.service('PostsSvc', function($http){
         
+        //get post method
         this.fetch = function(){
             return $http.get('/api/posts')
+        }
+        
+        //create post method
+        this.create = function(post){
+            
+            return $http.post('/api/posts', post)
         }
     })
