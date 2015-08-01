@@ -4,23 +4,6 @@ var app = angular.module('app', []);
 //create angular controller called PostsCtrl
 //defined PostsSvc as a service as it's not good to dependency inject controllers with $http
 app.controller('PostsCtrl', function($scope, PostsSvc) {
-
-    // $scope.posts = [
-    // 	{
-    // 		username:'graylien',
-    // 		body:'hola...'
-
-    // 	},
-    // 	{
-    // 		username:'graeme',
-    // 		body:'testing angular...'
-    // 	}
-    // ]
-
-    // $http.get('api/posts').success(function(posts) {
-
-    //         $scope.posts = posts;
-    // })
     
     PostsSvc.fetch().success(function(posts){
         
@@ -38,36 +21,21 @@ app.controller('PostsCtrl', function($scope, PostsSvc) {
                     body: $scope.postBody //this is the input field	
                     }
             
-            PostsSvc.create(post).success(function(post){
-                
+            PostsSvc.create(post).success(function(post){ 
                  $scope.posts.unshift(post)
-                    $scope.postBody = null;
-                
+                 //clear input field
+                 $scope.postBody = null;       
             })
-            // $http.post('api/posts', {
-            //         username: 'barry',
-            //         body: $scope.postBody //this is the input field	
-            //     }).success(function(post) {
-
-            //         $scope.posts.unshift(post)
-            //         $scope.postBody = null;
-            //     })
-            
-            
-                // $scope.posts.unshift({
-                // 	username:'barry',
-                // 	body:$scope.postBody //this is the input field	
-                // })
-
-            //clear input field
-            $scope.postBody = null;
         }
     }
 
 
 })
 
-  app.service('PostsSvc', function($http){
+/**
+ * PostsSvc
+ */
+app.service('PostsSvc', function($http){
         
         //get post method
         this.fetch = function(){

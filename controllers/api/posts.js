@@ -6,7 +6,6 @@ var router = require('express').Router()
  * API GET Endpoint
  */
  //because it's namespaced in server.js, we can leave out that part of the path
-//router.get('/api/posts', function(req,res, next){
 router.get('/', function(req,res, next){	 
 	 Post.find()
 	 .sort('-date')
