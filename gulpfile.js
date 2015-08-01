@@ -1,11 +1,35 @@
-var gulp = require('gulp')
-var concat = require('gulp-concat')
+var gulp = require('gulp');
 
-gulp.task('js', function(){
+/**
+ * Read in all the files under /gulp
+ */
+var fs = require('fs')
+fs.readdirSync(__dirname + '/gulp').forEach(function(task){
 	
-	//make sure module.js is loaded first
-	gulp.src(['ng/module.js','ng/**/*.js'])
-		.pipe(concat('app.js'))
-		.pipe(gulp.dest('assets'))
-	
+	require('./gulp/' + task)
 })
+
+/**
+ * Tasks
+ */
+
+gulp.task('watch:js', ['js'], function(){
+	
+	gulp.watch('ng/**/*.js', ['js'])
+})
+
+gulp.task('watch:css', ['css'], function(){
+	
+	gulp.watch('cssc/**/*.styl', ['css'])
+})
+/**
+ * Gulp dev task
+ */
+ gulp.task('dev', ['watch:css', 'watch:js', 'dev:server'])
+ 
+ /**
+  * Gulp Nodemon
+  */
+  
+
+
