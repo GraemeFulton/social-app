@@ -5,11 +5,16 @@
     "express": "^4.13.1",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
+    "gulp-jshint": "^1.11.2",
     "gulp-ng-annotate": "^1.1.0",
     "gulp-nodemon": "^2.0.3",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-stylus": "^2.0.6",
     "gulp-uglify": "^1.2.0",
     "mongoose": "^4.1.0"
+  },
+  "devDependencies": {
+    "gulp-jshint": "^1.11.2",
+    "jshint": "^2.8.0"
   }
 }
