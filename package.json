@@ -14,6 +14,7 @@
     "mongoose": "^4.1.0"
   },
   "devDependencies": {
+    "gulp-csslint": "^0.1.5",
     "gulp-jshint": "^1.11.2",
     "jshint": "^2.8.0"
   }
