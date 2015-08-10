@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "{ gulp dev }"
+  },
   "name": "socialapp",
   "dependencies": {
     "body-parser": "^1.13.2",
