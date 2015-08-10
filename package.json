@@ -16,6 +16,7 @@
     "gulp-uglify": "^1.2.0",
     "mongoose": "^4.1.0",
     
+    //added dev dependencies here since we're running gulp dev on start^^ and that uses the dev dependencies
         "gulp-csslint": "^0.1.5",
     "gulp-jshint": "^1.11.2",
     "jshint": "^2.8.0"
