@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "{ gulp dev }"
+    "start": "gulp dev"
   },
   "name": "socialapp",
   "dependencies": {
