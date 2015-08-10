@@ -14,7 +14,11 @@
     "gulp-sourcemaps": "^1.5.2",
     "gulp-stylus": "^2.0.6",
     "gulp-uglify": "^1.2.0",
-    "mongoose": "^4.1.0"
+    "mongoose": "^4.1.0",
+    
+        "gulp-csslint": "^0.1.5",
+    "gulp-jshint": "^1.11.2",
+    "jshint": "^2.8.0"
   },
   "devDependencies": {
     "gulp-csslint": "^0.1.5",
